@@ -1,0 +1,12 @@
+{
+  "name": "instaclone",
+  "version": "0.0.1",
+  "description": "Instaclone app server",
+  "main": "index.js",
+  "repository": "https://github.com/jmdc89/instaclone-server.git",
+  "author": "Jose Manuel <jmdcarq89@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./index.js"
+  }
+}

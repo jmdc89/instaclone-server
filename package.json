@@ -8,5 +8,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "node ./index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.12.5"
   }
 }

@@ -10,7 +10,9 @@
     "dev": "node ./index.js"
   },
   "dependencies": {
+    "apollo-server": "^2.23.0",
     "dotenv": "^8.2.0",
+    "graphql": "^15.5.0",
     "mongoose": "^5.12.5"
   }
 }

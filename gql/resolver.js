@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const bcryptjs = require("bcryptjs");
 
 const resolvers = {
   Query: {
@@ -27,7 +28,8 @@ const resolvers = {
       if (foundUsername) throw new Error("El nombre de usuario ya esta en uso");
 
       //Encriptar.
-      //....
+      const salt = await bcryptjs.genSaltSync(10);
+      newUser.password = await bcryptjs.hash(password, salt);
 
       try {
         const user = new User(newUser);

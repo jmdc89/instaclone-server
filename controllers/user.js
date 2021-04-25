@@ -32,6 +32,21 @@ async function register(input) {
   }
 }
 
+async function login(input) {
+  const { email, password } = input;
+
+  const userFound = await User.findOne({ email: email.toLowerCase() });
+  if (!userFound) throw new Error("Error en el email o contraseña");
+
+  const passwordSucess = await bcryptjs.compare(password, userFound.password);
+  if (!passwordSucess) throw new Error("Error en el email o contraseña");
+
+  return {
+    token: createToken(userFound, process.env.SECRET_KEY, "400h"),
+  };
+}
+
 module.exports = {
   register,
+  login,
 };

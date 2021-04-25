@@ -1,8 +1,8 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const awsUploadImage = require("../utils/aws-upload-image");
-const user = require("../models/user");
+// const jwt = require("jsonwebtoken");
+// const awsUploadImage = require("../utils/aws-upload-image");
+// const user = require("../models/user");
 
 async function register(input) {
   const newUser = input;

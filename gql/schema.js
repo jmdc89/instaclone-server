@@ -31,7 +31,25 @@ const typeDefs = gql`
 
   type Query {
     # User
-    getUser: User
+    getUser(id: ID, username: String): User
+    search(search: String): [User]
+
+    # Follow
+    isFollow(username: String!): Boolean
+    getFollowers(username: String!): [User]
+    getFolloweds(username: String!): [User]
+    getNotFolloweds: [User]
+
+    # Publication
+    getPublications(username: String!): [Publication]
+    getPublicationsFolloweds: [FeedPublication]
+
+    # Comment
+    getComments(idPublication: ID!): [Comment]
+
+    # Like
+    isLike(idPublication: ID!): Boolean
+    countLikes(idPublication: ID!): Int
   }
 
   type Mutation {

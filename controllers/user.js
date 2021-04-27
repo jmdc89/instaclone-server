@@ -69,4 +69,5 @@ async function getUser(id, username) {
 module.exports = {
   register,
   login,
+  getUser,
 };

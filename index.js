@@ -25,25 +25,25 @@ function server() {
   const serverApollo = new ApolloServer({
     typeDefs,
     resolvers,
-    // context: ({ req }) => {
-    //   const token = req.headers.authorization;
+    context: ({ req }) => {
+      const token = req.headers.authorization;
 
-    //   if (token) {
-    //     try {
-    //       const user = jwt.verify(
-    //         token.replace("Bearer ", ""),
-    //         process.env.SECRET_KEY
-    //       );
-    //       return {
-    //         user,
-    //       };
-    //     } catch (error) {
-    //       console.log("#### ERROR ####");
-    //       console.log(error);
-    //       throw new Error("Token invalido");
-    //     }
-    //   }
-    // },
+      if (token) {
+        try {
+          const user = jwt.verify(
+            token.replace("Bearer ", ""),
+            process.env.SECRET_KEY
+          );
+          return {
+            user,
+          };
+        } catch (error) {
+          console.log("#### ERROR ####");
+          console.log(error);
+          throw new Error("Token invalido");
+        }
+      }
+    },
   });
 
   //   serverApollo.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {

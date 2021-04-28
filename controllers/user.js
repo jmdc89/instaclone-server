@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-// const awsUploadImage = require("../utils/aws-upload-image");
+const awsUploadImage = require("../utils/aws-upload-image");
 // const user = require("../models/user");
 
 function createToken(user, SECRET_KEY, expiresIn) {
